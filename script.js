@@ -3,9 +3,9 @@ const bttnsContainer = document.querySelector('.buttonsContainer');
 const screenText = document.querySelector('.screenText');
 const equalsButton = document.querySelector('#equalsButton');
 
-let firstNumber = 0;
+let firstNumber = 2;
 let operation = null;
-let secondNumber = 0;
+let secondNumber = 3;
 let currentNumber = '';
 
 //USE THIS TO SET BUTTONS SIZES
@@ -72,10 +72,10 @@ function operate (x,operation,y){
     if (operation == '-') {
         return subtract(x,y);
     }
-    if (operation == '*') {
+    if (operation == 'x') {
         return multiply(x,y);
     }
-    if (operation == '/') {
+    if (operation == '÷') {
         return divide(x,y);
     }
 }
