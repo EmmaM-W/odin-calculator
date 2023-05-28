@@ -56,7 +56,6 @@ buttons.forEach((button) => {
 
   decimalButton.addEventListener('click',() => {
     if (decimalButtonPressed ==  false) {
-        console.log("hi");
         appendNumber(decimalButton.textContent);
         decimalButtonPressed = true;
     }
