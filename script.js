@@ -5,6 +5,7 @@ const equalsButton = document.querySelector('#equalsButton');
 const resultText = document.querySelector('.resultText')
 const clearButton = document.querySelector('#clearButton');
 const deleteButton = document.querySelector('#deleteButton');
+const decimalButton = document.querySelector('#decimalButton')
 
 let firstNumber = 0;
 let operation = null;
@@ -12,6 +13,7 @@ let storedOperation = null;
 let secondNumber = 0;
 let currentNumber = '';
 let hasBeenPressed = false;
+let decimalButtonPressed = false;
 
 //USE THIS TO SET BUTTONS SIZES
 const bttnContainerWidth = 200;
@@ -52,6 +54,14 @@ buttons.forEach((button) => {
     resultText.textContent = operate(firstNumber,operation,secondNumber);
   });
 
+  decimalButton.addEventListener('click',() => {
+    if (decimalButtonPressed ==  false) {
+        console.log("hi");
+        appendNumber(decimalButton.textContent);
+        decimalButtonPressed = true;
+    }
+  })
+
 function appendNumber(number){
     currentNumber = currentNumber + number;
     updateScreenContent(number);
@@ -59,6 +69,7 @@ function appendNumber(number){
 }
 function setOperation(operator){
     operation = operator;
+    decimalButtonPressed = false;
     updateScreenContent(operator);
     if (hasBeenPressed == false) {
         firstNumber = currentNumber;
@@ -140,10 +151,9 @@ function backspace(){
         || screenText.textContent.charAt(str.length-1) == 'x' 
         || screenText.textContent.charAt(str.length-1) == '÷') {
         return;
-        
+
     } else {
-        console.log("bye");
-        currentNumber = currentNumber.slice(0,-1);
+          currentNumber = currentNumber.slice(0,-1);
         screenText.textContent = screenText.textContent.slice(0,-1);
     }
 }
