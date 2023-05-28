@@ -1,0 +1,57 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calculatorBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #292930;
+    border: black solid 1px;
+    border-radius: 5px;
+    
+}
+#calculatorScreen{
+    display: flex;
+    justify-content: flex-end;
+    background-color: gainsboro;
+    border: solid 1px black;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 180px;
+    height: 60px;
+    
+}
+.buttonsContainer{
+    padding: 10px;
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+button{
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: gainsboro;
+    border: solid black 1px;
+}
+#divideButton, #multiplyButton, #subtractButton, #addButton {
+    background-color: #FCC133;
+}
+#equalsButton {
+    background-color: #3eb650;
+}
+
+#clearButton{
+    background-color: #E12B38;
+}
+#deleteButton{
+    background-color: cornflowerblue;
+}
