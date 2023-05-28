@@ -14,7 +14,9 @@ body{
 }
 #calculatorScreen{
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     background-color: gainsboro;
     border: solid 1px black;
     padding: 10px;
