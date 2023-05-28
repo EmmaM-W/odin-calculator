@@ -29,6 +29,9 @@ body{
     height: 60px;
     
 }
+.resultText{
+    font-weight: bolder;
+}
 .buttonsContainer{
     padding: 10px;
     margin-bottom: 5px;
