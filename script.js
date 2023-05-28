@@ -108,7 +108,7 @@ function operate (x,operation,y){
     x = Number(x);
     y = Number(y);
     //handle if user tries to divide by zero
-    if (x == 0 || y == 0 && operation == "÷") {
+    if (y == 0 && operation == "÷") {
         return "nice try punk"
     }
     //handle if user presses = button before using an operation
