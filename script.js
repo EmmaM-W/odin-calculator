@@ -4,9 +4,10 @@ const screenText = document.querySelector('.screenText');
 const equalsButton = document.querySelector('#equalsButton');
 const resultText = document.querySelector('.resultText')
 
-let firstNumber = 2;
+let firstNumber = 0;
 let operation = null;
-let secondNumber = 3;
+let storedOperation = null;
+let secondNumber = 0;
 let currentNumber = '';
 let hasBeenPressed = false;
 
@@ -36,7 +37,8 @@ buttons.forEach((button) => {
   });
 
   equalsButton.addEventListener('click', () => {
-    
+    secondNumber = currentNumber;
+    console.log(firstNumber,operation,secondNumber);
     resultText.textContent = operate(firstNumber,operation,secondNumber);
   });
 
@@ -50,11 +52,17 @@ function setOperation(operator){
     updateScreenContent(operator);
     if (hasBeenPressed == false) {
         firstNumber = currentNumber;
-        currentNumber = 0;
+        console.log(firstNumber);
+        currentNumber = '';
         hasBeenPressed = true;
+        storedOperation = operator;
     } else {
         secondNumber = currentNumber;
-        operate(firstNumber,operation,secondNumber);
+        console.log(secondNumber);
+        currentNumber = '';
+        console.log(firstNumber,storedOperation,secondNumber);
+        firstNumber = operate(firstNumber,storedOperation,secondNumber);
+        storedOperation = operator;
     }
 }
 function updateScreenContent(input){
