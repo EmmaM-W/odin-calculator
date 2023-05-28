@@ -3,6 +3,7 @@ const bttnsContainer = document.querySelector('.buttonsContainer');
 const screenText = document.querySelector('.screenText');
 const equalsButton = document.querySelector('#equalsButton');
 const resultText = document.querySelector('.resultText')
+const clearButton = document.querySelector('#clearButton');
 
 let firstNumber = 0;
 let operation = null;
@@ -36,6 +37,10 @@ buttons.forEach((button) => {
 
   });
 
+  clearButton.addEventListener('click', () => {
+    reset();
+  })
+
   equalsButton.addEventListener('click', () => {
     secondNumber = currentNumber;
     console.log(firstNumber,operation,secondNumber);
@@ -62,6 +67,7 @@ function setOperation(operator){
         currentNumber = '';
         console.log(firstNumber,storedOperation,secondNumber);
         firstNumber = operate(firstNumber,storedOperation,secondNumber);
+        resultText.textContent = firstNumber;
         storedOperation = operator;
     }
 }
@@ -86,6 +92,15 @@ function divide (x,y){
 function operate (x,operation,y){
     x = Number(x);
     y = Number(y);
+    //handle if user tries to divide by zero
+    if (x == 0 || y == 0 && operation == "÷") {
+        return "nice try punk"
+    }
+    //handle if user presses = button before using an operation
+    if (operation == null){
+        return currentNumber;
+    }
+
     if (operation == '+') {
         return add(x,y);
     }
@@ -98,6 +113,19 @@ function operate (x,operation,y){
     if (operation == '÷') {
         return divide(x,y);
     }
+ 
+}
+
+function reset(){
+    firstNumber = 0;
+    operation = null;
+    storedOperation = null;
+    secondNumber = 0;
+    currentNumber = '';
+    hasBeenPressed = false;
+    screenText.textContent='';
+    resultText.textContent='';
+
 }
 
 //When operator button is pressed
