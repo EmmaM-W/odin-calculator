@@ -1,22 +1,52 @@
 const buttons = document.querySelectorAll('button');
 const bttnsContainer = document.querySelector('.buttonsContainer');
+const screenText = document.querySelector('.screenText');
+const equalsButton = document.querySelector('#equalsButton');
 
 let firstNumber = 0;
-let opperation = null;
+let operation = null;
 let secondNumber = 0;
+let currentNumber = '';
 
 //USE THIS TO SET BUTTONS SIZES
 const bttnContainerWidth = 200;
 bttnsContainer.style.width = bttnContainerWidth + "px";
 
 buttons.forEach((button) => {
+    //sets the size of the buttons
     if (button.id == 'clearButton' || button.id == 'deleteButton') {
         button.style.width = (bttnContainerWidth/2)-5 + "px";
     } else {
         button.style.width = (bttnContainerWidth/4)-5 + "px";
     }
+    if (button.className == 'numberButton') {
+        button.addEventListener('click',() => {
+            appendNumber(button.textContent);
+        })
+    }
+    if (button.className == 'operatorButton') {
+        button.addEventListener('click',() => {
+            setOperation(button.textContent);
+            
+        })
+    }
+
+  });
+//NOT WORKING RETURNS UNDEFINED
+equalsButton.addEventListener('click', () => {
+    console.log(operation);
+    alert(operate(firstNumber,operation,secondNumber));
   });
 
+function appendNumber(x){
+    currentNumber = currentNumber + x;
+    screenText.textContent = screenText.textContent + x;
+    return currentNumber;
+}
+function setOperation(operator){
+    operation = operator;
+    screenText.textContent = screenText.textContent + operation;
+}
 
 
 function add (x,y){
@@ -46,6 +76,10 @@ function operate (x,operation,y){
         return divide(x,y);
     }
 }
+
+//When operator button is pressed
+//IF currentnumber is number 1, switch currentnumber to number 2
+//if currentnumber is 2, OPERATE
 
 //When user presses buttons it should store the number in a variable
 //then when the user hits an operator it starts to store the next following numbers in a seperate variable

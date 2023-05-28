@@ -42,7 +42,7 @@ button{
     background-color: gainsboro;
     border: solid black 1px;
 }
-#divideButton, #multiplyButton, #subtractButton, #addButton {
+.operatorButton {
     background-color: #FCC133;
 }
 #equalsButton {
