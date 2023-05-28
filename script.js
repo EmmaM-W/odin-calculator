@@ -38,14 +38,17 @@ equalsButton.addEventListener('click', () => {
     alert(operate(firstNumber,operation,secondNumber));
   });
 
-function appendNumber(x){
-    currentNumber = currentNumber + x;
-    screenText.textContent = screenText.textContent + x;
+function appendNumber(number){
+    currentNumber = currentNumber + number;
+    updateScreenContent(number);
     return currentNumber;
 }
 function setOperation(operator){
     operation = operator;
-    screenText.textContent = screenText.textContent + operation;
+    updateScreenContent(operator);
+}
+function updateScreenContent(input){
+    screenText.textContent = screenText.textContent + input;
 }
 
 
@@ -75,6 +78,10 @@ function operate (x,operation,y){
     if (operation == '/') {
         return divide(x,y);
     }
+}
+
+function calculate(){
+
 }
 
 //When operator button is pressed
