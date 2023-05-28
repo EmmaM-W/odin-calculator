@@ -4,6 +4,7 @@ const screenText = document.querySelector('.screenText');
 const equalsButton = document.querySelector('#equalsButton');
 const resultText = document.querySelector('.resultText')
 const clearButton = document.querySelector('#clearButton');
+const deleteButton = document.querySelector('#deleteButton');
 
 let firstNumber = 0;
 let operation = null;
@@ -39,6 +40,10 @@ buttons.forEach((button) => {
 
   clearButton.addEventListener('click', () => {
     reset();
+  })
+
+  deleteButton.addEventListener('click', () => {
+    backspace();
   })
 
   equalsButton.addEventListener('click', () => {
@@ -126,6 +131,21 @@ function reset(){
     screenText.textContent='';
     resultText.textContent='';
 
+}
+
+function backspace(){
+    str = screenText.textContent;
+    if (screenText.textContent.charAt(str.length-1) == '+' 
+        || screenText.textContent.charAt(str.length-1) == '-' 
+        || screenText.textContent.charAt(str.length-1) == 'x' 
+        || screenText.textContent.charAt(str.length-1) == '÷') {
+        return;
+        
+    } else {
+        console.log("bye");
+        currentNumber = currentNumber.slice(0,-1);
+        screenText.textContent = screenText.textContent.slice(0,-1);
+    }
 }
 
 //When operator button is pressed
