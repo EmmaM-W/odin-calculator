@@ -1,5 +1,10 @@
 const buttons = document.querySelectorAll('button');
 const bttnsContainer = document.querySelector('.buttonsContainer');
+
+let firstNumber = 0;
+let opperation = null;
+let secondNumber = 0;
+
 //USE THIS TO SET BUTTONS SIZES
 const bttnContainerWidth = 200;
 bttnsContainer.style.width = bttnContainerWidth + "px";
@@ -9,7 +14,6 @@ buttons.forEach((button) => {
         button.style.width = (bttnContainerWidth/2)-5 + "px";
     } else {
         button.style.width = (bttnContainerWidth/4)-5 + "px";
-
     }
   });
 
